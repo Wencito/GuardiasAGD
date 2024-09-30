@@ -1,0 +1,93 @@
+body {
+    display: flex;
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    box-sizing: border-box;
+    
+}
+
+
+.sidebar h2 {
+    text-align: center;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin: 20px 0;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.sidebar ul li a:hover {
+    background-color: #555;
+}
+
+.main-content {
+    flex: 1;
+    padding: 20px;
+}
+
+.content {
+    display: none;
+}
+
+.content.active {
+    display: block;
+}
+
+.login_logo {
+    text-align: center;
+    margin: 0 auto; 
+    padding: 20px 0;
+}
+
+.login_logo img {
+    max-width: 150px;
+    height: auto; 
+}
+
+.m-aside-menu .m-menu__nav>.m-menu__item {
+    position: relative;
+    margin: 0;
+}
+.m-aside-menu .m-menu__nav .m-menu__item {
+    display: block;
+    float: none;
+    height: auto;
+    padding: 0;
+}
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+    unicode-bidi: isolate;
+}
+.m-aside-menu .m-menu__nav {
+    list-style: none;
+    padding: 30px 0 30px 0;
+}
+user agent stylesheet
+ul {
+    list-style-type: disc;
+}

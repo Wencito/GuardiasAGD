@@ -1,0 +1,13 @@
+npm install express 
+Uso: Utilizado para definir y manejar las rutas de tu aplicación, 
+gestionar las solicitudes HTTP y responder a ellas.
+npm install mysql2 
+Utilizado para conectarse a una base de datos MySQL, 
+ejecutar consultas y manejar la interacción con la base de datos.
+npm install argon2 
+Utilizado para hash y verificar contraseñas de usuarios de manera segura.
+npm install jsonwebtoken 
+Utilizado para generar tokens de autenticación que se envían al cliente después de iniciar sesión, 
+permitiendo que el cliente acceda a rutas protegidas.
+npm install dotenv
+instalar dependencias 
