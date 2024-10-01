@@ -2,16 +2,16 @@ body {
     display: flex;
     font-family: Arial, sans-serif;
     margin: 0;
+    height: 100vh;
 }
 
 .sidebar {
     width: 250px;
-    height: 100vh;
-    background-color: #333;
-    color: white;
+    height: 120vh; /* Cambiado a 100vh para llenar toda la altura */
+    background-color: #0c3e7d;
+    color: rgb(0, 0, 0);
     padding: 20px;
     box-sizing: border-box;
-    
 }
 
 
@@ -29,7 +29,7 @@ body {
 }
 
 .sidebar ul li a {
-    color: white;
+    color: black;
     text-decoration: none;
     display: block;
     padding: 10px;
@@ -37,7 +37,7 @@ body {
 }
 
 .sidebar ul li a:hover {
-    background-color: #555;
+    background-color: #0a305f;
 }
 
 .main-content {
@@ -83,11 +83,195 @@ li {
     text-align: -webkit-match-parent;
     unicode-bidi: isolate;
 }
+
 .m-aside-menu .m-menu__nav {
     list-style: none;
     padding: 30px 0 30px 0;
 }
-user agent stylesheet
+
+
 ul {
     list-style-type: disc;
+}
+
+.actions-menu {
+    margin-top: 20px;
+    flex: 1; 
+    padding: 20px;  
+    background-color: #ccc; /* Color de fondo gris claro */
+    color: #333;
+    min-height: 80vh; 
+    border-radius: 20px;
+}
+
+.actions-menu h1 {
+    font-size: 40px; 
+    margin-bottom: 20px; 
+    text-align: center;
+    color: #333; 
+}
+
+.search-container {
+    display: flex; 
+    align-items: center; /* Alinea verticalmente todos los elementos */
+    margin: 20px 0; 
+}
+
+.search-container .form-control {
+    border-radius: 5px;
+    border: 1px solid #000000;
+    flex: 1;
+    padding: 10px; 
+}
+
+.search-container .btn {
+    border-radius: 5px;
+    margin-left: 0; /* Cambia de -1px a 0 */
+    color: black;
+}
+
+/*Navbar de arriba */
+@media (min-width: 768px) {
+    @supports ((position:-webkit-sticky) or (position:sticky)) {
+        .bd-navbar1 {
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0;
+            z-index: 1071;
+        }
+    }
+}
+
+.navbar1-expand {
+    -ms-flex-flow: row nowrap;
+    flex-flow: row nowrap;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+}
+
+.navbar1 {
+    position: sticky; /* Fija la navbar en la parte superior */
+    top: 0; /* Se mantendrá en la parte superior */
+    max-width: 80%; /* Ajusta el ancho de la navbar según el ancho de la sidebar */
+    background-color: #BBE1FA; /* El mismo color oscuro que la navbar */
+    z-index: 1000; /* Asegúrate de que esté por encima de otros elementos */
+    height: 150px;
+    margin-bottom: 200px;
+}
+
+.container {
+    margin-top: 20px; /* Espacio en la parte superior para separar del contenido anterior */
+}
+
+.table {
+    margin-top: 100px; 
+    border-radius: 5px; /* Bordes redondeados */
+    overflow: hidden; /* Para que los bordes redondeados funcionen */
+}
+
+.thead-dark th {
+    background-color: #0F4C75; /* Color de fondo oscuro para el encabezado */
+    color: white; /* Color del texto */
+}
+
+tbody tr:hover {
+    background-color: #f1f1f1; /* Color de fondo al pasar el ratón */
+}
+
+.content1{
+    width: 1000px;
+    height: 500px;
+    margin-bottom: 80px;
+    margin-left: 90px;
+    margin-right: 60px;
+    padding: 20px; /* Espaciado interno en lugar de márgenes para el contenido */
+    flex-grow: 1; /* Esto permite que el contenido también ocupe el espacio restante */
+    margin-top: 30px; /* Evitar márgenes que causen espacio extra */
+}
+
+
+.EspacioOscuro {
+    background-color: #1B262C;
+    flex-grow: 1; /* Esto permite que se expanda a ocupar todo el espacio disponible */
+    margin: 0; /* Asegúrate de que no tenga márgenes */
+    height:100px;
+    width: 100%;
+}
+
+.modal-header {
+    background-color: #0F4C75; /* Color de fondo oscuro */
+    color: white; /* Color de texto blanco */
+}
+
+.modal-title {
+    font-size: 1.5rem; /* Tamaño del texto más grande */
+}
+
+.modal-body {
+    padding: 20px; /* Espaciado interno */
+}
+
+.form-group label {
+    font-weight: bold; /* Negrita para las etiquetas */
+}
+
+.form-control {
+    border-radius: 5px; /* Bordes redondeados */
+    border: 1px solid #ccc; /* Borde claro */
+}
+
+.btn-primary {
+    background-color: #007bff; /* Color de fondo del botón */
+    border-color: #007bff; /* Color del borde del botón */
+}
+
+.btn-primary:hover {
+    background-color: #0056b3; /* Color de fondo al pasar el ratón */
+    border-color: #0056b3; /* Color del borde al pasar el ratón */
+}
+
+.Obstaculo{
+    width: 150px;
+    height: 70px;
+    background-color: ;
+}
+
+.upload-container {
+    display: inline-block; /* Asegura que el botón sea de bloque en línea */
+    margin: 0; /* Sin margen */
+    padding: 0; /* Sin padding para evitar desplazamientos */
+    margin-left: 10px;
+}
+
+.upload-container label {
+    display: inline-block; /* Asegura que el botón sea de bloque en línea */
+    margin: 0; /* Asegúrate de que no haya margen extra */
+}
+
+
+.botonExcel {
+    background-color: #4CAF50 !important; /* Color de fondo verde brillante */
+    color: rgb(230, 221, 221) !important; /* Color del texto */
+    border: none; /* Sin borde */
+    transition: background-color 0.3s; /* Transición suave */
+    padding: 5px 10px; /* Ajuste de padding */
+    margin: 0; /* Sin margen para alineación */
+}
+
+.botonExcel:hover {
+    background-color: #6dce72 !important; /* Color al pasar el ratón */
+    color: white !important;
+}
+
+.botonAgregar {
+    background-color: #0c3e7d !important; /* Color de fondo azul brillante */
+    color: rgb(230, 221, 221) !important; /* Color del texto */
+    border: none; /* Sin borde */
+    transition: background-color 0.3s; /* Transición suave */
+    margin: 0; /* Sin margen para alineación */
+}
+
+.botonAgregar:hover {
+    background-color: #3b8be0 !important; /* Color al pasar el ratón */
+    color: white !important;
 }
