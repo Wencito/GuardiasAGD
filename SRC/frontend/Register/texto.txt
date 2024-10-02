@@ -1,0 +1,6 @@
+npm i bcryptjs
+npm i cors
+npm i ejs
+npm i express-session
+npm i express-validator
+npm i mysql
