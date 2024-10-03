@@ -1,4 +1,4 @@
-const listausuarios = document.getElementById("lista-veterinarias");
+const listausuarios = document.getElementById("lista-usuarios");
 const legajo = document.getElementById("legajo");
 const nombre = document.getElementById("nombre");
 const apellido = document.getElementById("apellido");
@@ -10,7 +10,7 @@ const agregar = document.getElementById("btn-agregar");
 const form = document.getElementById("form");
 const indice = document.getElementById("indice");
 const btnguardar = document.getElementById("btn-guardar");
-const url = "http://localhost:4000/Usuarios";
+const url = "http://localhost:4000/usuarios";
 
 let usuarios = [];
 
@@ -25,7 +25,7 @@ async function listarusuarios() {
             const htmlusuarios = usuarios.map((usuario, index) => 
                 `<tr>
                     <th scope="row">${index}</th>
-                    <td>${usuario.documento}</td>
+                    <td>${usuario.legajo}</td>
                     <td>${usuario.nombre}</td>
                     <td>${usuario.apellido}</td>
                     <td>${usuario.email}</td>

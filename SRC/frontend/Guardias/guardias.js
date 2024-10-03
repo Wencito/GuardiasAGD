@@ -1,11 +1,11 @@
 const listaguardias = document.getElementById("lista-guardias");
+const legajo = document.getElementById("legajo");
+const grupo = document.getElementById("grupo");
 const contacto = document.getElementById("contacto");
-const usuario = document.getElementById("usuario");
-const historia = document.getElementById("historia");
-const diagnostico = document.getElementById("diagnostico");
+const horario = document.getElementById("horario");
 const indice = document.getElementById("indice");
 const btnGuardar = document.getElementById("btn-guardar");
-//console.log({contacto, usuario, historia, diagnostico});
+
 
 const url = "http://localhost:4000";
 
@@ -29,7 +29,8 @@ async function listarguardias() {
           <th scope="row">${indice}</th>
           <td>${guardia.usuario.legajo}</td>
           <td>${guardia.usuario.grupo}</td>
-          <td>${guardia.horaguardia}</td>
+          <td>${guardia.contacto.contacto}</td>
+          <td>${guardia.horario}</td>
           <td>
               <div class="btn-group" role="group" aria-label="Basic example">
                 <button type="button" class="btn btn-info editar" data-toggle="modal" data-target="#exampleModalCenter" ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
@@ -63,7 +64,7 @@ async function listarcontactos() {
     if (respuesta.ok) {
       contactos.forEach((_contacto, indice) => {
         const optionActual = document.createElement("option");
-        optionActual.innerHTML = _contacto.nombre;
+        optionActual.innerHTML = _contacto.contacto;
         optionActual.value = indice;
         contacto.appendChild(optionActual);
       });
@@ -85,7 +86,7 @@ async function listarusuarios() {
     if (respuesta.ok) {
       usuarios.forEach((_usuario, indice) => {
         const optionActual = document.createElement("option");
-        optionActual.innerHTML = `${_usuario.nombre} ${_usuario.apellido}`;
+        optionActual.innerHTML = `${_usuario.legajo} ${_usuario.grupo}`;
         optionActual.value = indice;
         usuario.appendChild(optionActual);
       });
@@ -103,9 +104,9 @@ function editar(index) {
     const guardia = guardias[index];
     indice.value = index;
     contacto.value = guardia.contacto.id;
-    usuario.value = guardia.usuario.id;
-    historia.value = guardia.historia;
-    diagnostico.value = guardia.diagnostico;
+    usuario.value = guardia.legajo.id;
+    horario.value = guardia.horario;
+    grupo.value = guardia.grupo;
   };
 }
 
@@ -115,9 +116,10 @@ async function enviarDatos(evento) {
   try {
     const datos = {
       contacto: contacto.value,
-      usuario: usuario.value,
-      historia: historia.value,
-      diagnostico: diagnostico.value,
+      legajo: legajo.value,
+      horario: horario.value,
+      grupo: grupo.value,
+
     };
     if (validar(datos) === true) {
       const accion = btnGuardar.innerHTML;

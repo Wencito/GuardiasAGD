@@ -1,61 +1,57 @@
-module.exports = function consultasHandler({consultas, veterinarias, mascotas}){
+module.exports = function guardiasHandler({contactos, guardias, usuarios}){
     return {
         get: (data, callback) => {
             if(typeof data.indice !== "undefined"){
-                console.log("handler consultas", { data });
-                if(consultas[data.indice]){
-                    return callback(200, consultas[data.indice]);
+                console.log("handler guardias", { data });
+                if(guardias[data.indice]){
+                    return callback(200, guardias[data.indice]);
                 }
-                return callback(404, {mensaje: `Consulta con indice ${data.indice} no encontrado`});
+                return callback(404, {mensaje: `guardia con indice ${data.indice} no encontrado`});
             }
-            /* Relación de consultas con veterinarias y mascotas*/
-            const consultasConRelaciones = consultas.map((consulta) =>(
-                {...consulta, 
-                    mascota: { ...mascotas[consulta.mascota], id: consulta.mascota},
-                    veterinaria: { 
-                        ...veterinarias[consulta.veterinaria], 
-                        id: consulta.veterinaria,
+            /* Relación de guardias con usuarios y contactos*/
+            const guardiasConRelaciones = guardias.map((guardia) =>(
+                {...guardia, 
+                    contacto: { ...contactos[guardia.contacto], id: guardia.contacto},
+                    usuario: { 
+                        ...usuarios[guardia.usuario], 
+                        id: guardia.usuario,
                     },
                 }
             ));
-            callback(200, consultasConRelaciones);
+            callback(200, guardiasConRelaciones);
         },
         post: (data, callback) => {
-            let nuevaconsulta = data.payload;
-            nuevaconsulta.fechaCreacion = new Date();
-            nuevaconsulta.fechaEdicion = null;
-            consultas = [...consultas, nuevaconsulta];
-            callback(201, nuevaconsulta);
+            let nuevaguardia = data.payload;
+            guardias = [...guardias, nuevaguardia];
+            callback(201, nuevaguardia);
         },
         put: (data, callback) => {
             if (typeof data.indice !== "undefined") {
-              if (consultas[data.indice]) {
-                const { fechaCreacion } = consultas[data.indice];
-                consultas[data.indice] = {
+              if (guardias[data.indice]) {
+                const { fechaCreacion } = guardias[data.indice];
+                guardias[data.indice] = {
                   ...data.payload,
-                  fechaCreacion,
-                  fechaEdicion: new Date(),
                 };
-                return callback(200, consultas[data.indice]);
+                return callback(200, guardias[data.indice]);
               }
               return callback(404, {
-                mensaje: `consulta con indice ${data.indice} no encontrado`,
+                mensaje: `guardia con indice ${data.indice} no encontrado`,
               });
             }
             callback(400, { mensaje: "indice no enviado" });
           },
         delete: (data, callback) => {
             if(typeof data.indice !== "undefined"){
-                if(consultas[data.indice]){
-                    consultas = consultas.filter(
-                        (_consulta, indice) => indice!= data.indice
+                if(guardias[data.indice]){
+                    guardias = guardias.filter(
+                        (_guardia, indice) => indice!= data.indice
                  );
                     return callback(204, {
                         mensaje: `elemento con indice ${data.indice} eliminado`,
                     });
                 }
                 return callback(404, {
-                    mensaje: `Dueño con indice ${data.indice} no encontrado`,
+                    mensaje: `Guardia con indice ${data.indice} no encontrado`,
                 });
             }
             callback(400, {mensaje: 'indice no enviado'});

@@ -14,7 +14,6 @@ body {
     box-sizing: border-box;
 }
 
-
 .sidebar h2 {
     text-align: center;
 }
@@ -89,7 +88,6 @@ li {
     padding: 30px 0 30px 0;
 }
 
-
 ul {
     list-style-type: disc;
 }
@@ -129,7 +127,6 @@ ul {
     margin-left: 0;
     color: black;
 }
-
 
 @media (min-width: 768px) {
     @supports ((position:-webkit-sticky) or (position:sticky)) {
@@ -178,7 +175,7 @@ tbody tr:hover {
     background-color: #f1f1f1;
 }
 
-.content1{
+.content1 {
     width: 1000px;
     height: 500px;
     margin-bottom: 150px;
@@ -189,12 +186,11 @@ tbody tr:hover {
     margin-top: 30px;
 }
 
-
 .EspacioOscuro {
     background-color: #1B262C;
     flex-grow: 1; 
     margin: 0; 
-    height:100px;
+    height: 100px;
     width: 100%;
 }
 
@@ -210,6 +206,10 @@ tbody tr:hover {
 .modal-header {
     background-color: #0F4C75; 
     color: white;
+}
+
+.modal-content {
+    border-radius: 10px; /* Rounded corners */
 }
 
 .modal-title {
@@ -239,7 +239,7 @@ tbody tr:hover {
     border-color: #0056b3;
 }
 
-.Obstaculo{
+.Obstaculo {
     width: 150px;
     height: 70px;
 }
@@ -255,7 +255,6 @@ tbody tr:hover {
     display: inline-block; 
     margin: 0;
 }
-
 
 .botonExcel {
     background-color: #4CAF50 !important; 
@@ -284,18 +283,21 @@ tbody tr:hover {
     color: white !important;
 }
 
-.Footer1 {
-    background-color: #354046;
-    flex-grow: 1; 
-    margin: 0; 
-    height: 82px;
-    width: 100%;
-    margin-top: 50px;
-}
-
-.LetrasFoot{
+.LetrasFoot {
     color: white;
     justify-content: center;
     margin-left: 20px;
     margin-top: 30px;
+}
+
+.navExtra {
+    margin-top: 500px;
+    position: relative;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .modal-dialog {
+        max-width: 90%; /* Responsive width */
+    }
 }

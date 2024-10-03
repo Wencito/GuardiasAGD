@@ -1,17 +1,16 @@
 const recursos = require("./recursos");
-const inicio = require("./rutas/guardias");
-const inicio = require("./rutas/contactos");
-const inicio = require("./rutas/usuarios");
+const guardias = require("./rutas/guardias");
+const contactos = require("./rutas/contactos");
+const usuarios = require("./rutas/usuarios");
 
-module.exports = { //handler
+module.exports = {
     ruta: (data, callback) => {
-        callback(200, {mensaje: 'Esta es /ruta'});
+        callback(200, { mensaje: 'Esta es /ruta' });
     },
-    mascotas: mascotas(recursos.mascotas),
-    veterinarias: veterinarias(recursos.veterinarias),
-    duenos: duenos(recursos.duenos),
-    consultas: consultas(recursos),
+    guardias: guardias(recursos),
+    contactos: contactos(recursos.contactos),
+    usuarios: usuarios(recursos.usuarios),
     noEncontrado: (data, callback) => {
-        callback(404, {mensaje: 'No encontrado'});
+        callback(404, { mensaje: 'No encontrado' });
     },
 };

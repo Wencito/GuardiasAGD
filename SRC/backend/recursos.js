@@ -1,13 +1,9 @@
-const contactos = require("./rutas/contactos");
-const guardias = require("./rutas/guardias");
-const usuario = require("./rutas/usuario");
-
 module.exports = {
-    usuario: [
-        {legajo: "", nombre: "Agustin", apellido: "Arbol", email: "Agustin@example", contacto:"2112551", grupo:"ASA"},
-        {legajo: "", nombre: "Alfonso", apellido: "Diaz", email: "Alfonso@example", contacto:"125515", grupo:"ATI"},
-        {legajo: "", nombre: "Ruben", apellido: "Sanchez", email: "Ruben@example", contacto:"7144124", grupo:"CAU"},
-        {legajo: "", nombre: "Nicolas", apellido: "Palacios", email: "Nicolas@example", contacto:"1245215", grupo:"PMZ"},
+    usuarios: [
+        {legajo: "123456789", nombre: "Agustin", apellido: "Arbol", email: "Agustin@example", contacto:"2112551", grupo:"ASA"},
+        {legajo: "987654321", nombre: "Alfonso", apellido: "Diaz", email: "Alfonso@example", contacto:"125515", grupo:"ATI"},
+        {legajo: "123789456", nombre: "Ruben", apellido: "Sanchez", email: "Ruben@example", contacto:"7144124", grupo:"CAU"},
+        {legajo: "987321654", nombre: "Nicolas", apellido: "Palacios", email: "Nicolas@example", contacto:"1245215", grupo:"PMZ"},
     ],
     contactos: [
         {nombre: "Alejandro", apellido: "Martinez", email: "alejandro@exmple.com", contacto: "1237645124", interno:"4330"},
@@ -19,8 +15,8 @@ module.exports = {
         {
             legajo: 0, 
             grupo: 0,
-            contacto: "Diagnostco1",
-            horaguardia:"historia1"
+            contacto: 0,
+            horario: "2024-10-03 17:00",
         },
     ],
 }

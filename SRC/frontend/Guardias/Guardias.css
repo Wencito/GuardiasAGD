@@ -298,3 +298,9 @@ tbody tr:hover {
     margin-left: 20px;
     margin-top: 30px;
 }
+
+.navExtra{
+    margin-top: 500px;
+    position: relative;
+    font-weight: bold;
+}

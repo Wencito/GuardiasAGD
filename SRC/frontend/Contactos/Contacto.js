@@ -1,13 +1,15 @@
-const listausuarios = document.getElementById("lista-veterinarias");
-const legajo = document.getElementById("legajo");
+const listacontactos = document.getElementById("lista-contactos");
+const nombre = document.getElementById("nombre");
+const apellido = document.getElementById("apellido");
 const email = document.getElementById("email");
 const contacto = document.getElementById("contacto");
-const grupo = document.getElementById("grupo");
+const interno = document.getElementById("interno");
 const agregar = document.getElementById("btn-agregar");
+
 const form = document.getElementById("form");
 const indice = document.getElementById("indice");
 const btnguardar = document.getElementById("btn-guardar");
-const url = "http://localhost:4000/Contactos";
+const url = "http://localhost:4000/contactos";
 
 let contactos = [];
 
@@ -22,12 +24,11 @@ async function listarcontactos() {
             const htmlcontactos = contactos.map((contacto, index) => 
                 `<tr>
                     <th scope="row">${index}</th>
-                    <td>${contacto.documento}</td>
                     <td>${contacto.nombre}</td>
                     <td>${contacto.apellido}</td>
                     <td>${contacto.email}</td>
                     <td>${contacto.contacto}</td>
-                    <td>${contacto.grupo}</td>
+                    <td>${contacto.interno}</td>
                     <td>
                         <div class="btn-group" role="group" aria-label="Basic example">
                             <button type="button" class="btn btn-info editar" data-toggle="modal" data-target="#exampleModalCenter"><i class="bi bi-pencil-square"></i></button>
@@ -35,13 +36,13 @@ async function listarcontactos() {
                         </div>
                     </td>
                 </tr>`).join("");
-            listausuarios.innerHTML = htmlcontactos;
+            listacontactos.innerHTML = htmlcontactos;
             Array.from(document.getElementsByClassName('editar')).forEach((botonEditar, index) => botonEditar.onclick = editar(index));
             Array.from(document.getElementsByClassName('eliminar')).forEach((botonEliminar, index) => botonEliminar.onclick = eliminar(index));
             return;
         }
-        listausuarios.innerHTML = `<tr>
-                <td class="TabNo" colspan="8">No hay usuarios</td>
+        listacontactos.innerHTML = `<tr>
+                <td class="TabNo" colspan="8">No hay contactos</td>
             </tr>`;
     } catch (error) {
         console.log({ error });
@@ -53,12 +54,11 @@ async function enviarDatos(evento) {
     evento.preventDefault();
     try {
         const datos = {
-            legajo: legajo.value,
             nombre: nombre.value,
             apellido: apellido.value,
             email: email.value,
             contacto: contacto.value,
-            grupo: grupo.value
+            interno: interno.value
         };
         let method = "POST";
         let urlEnvio = url;
@@ -91,23 +91,21 @@ function editar(index) {
         btnguardar.innerHTML = 'Editar';
         $('#exampleModalCenter').modal('toggle');
         const contacto = contactos[index];
-        legajo.value = contacto.legajo;
         nombre.value = contacto.nombre;
         apellido.value = contacto.apellido;
         email.value = contacto.email;
         contacto.value = contacto.contacto;
-        grupo.value = contacto.grupo;
+        interno.value = contacto.interno;
         indice.value = index;
     }
 };
 
 function resetModal() {
-    legajo.value = '';
     nombre.value = '';
     apellido.value = '';
     email.value = '';
     contacto.value = '';
-    grupo.value = '';
+    interno.value = '';
     indice.value = '';
     btnguardar.innerHTML = 'Crear';
 }
