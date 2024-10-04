@@ -1,5 +1,5 @@
 const listaguardias = document.getElementById("lista-guardias");
-const legajo = document.getElementById("legajo");
+const usuario = document.getElementById("usuario");
 const grupo = document.getElementById("grupo");
 const contacto = document.getElementById("contacto");
 const horario = document.getElementById("horario");
@@ -10,7 +10,6 @@ const btnGuardar = document.getElementById("btn-guardar");
 const url = "http://localhost:4000";
 
 let guardias = [];
-let contactos = [];
 let usuarios = [];
 
 async function listarguardias() {
@@ -27,9 +26,9 @@ async function listarguardias() {
           (guardia, indice) =>
             `<tr>
           <th scope="row">${indice}</th>
-          <td>${guardia.usuario.legajo}</td>
+          <td>${guardia.usuario.nombre} ${guardia.usuario.apellido}</td>
           <td>${guardia.usuario.grupo}</td>
-          <td>${guardia.contacto.contacto}</td>
+          <td>${guardia.usuario.contacto}</td>
           <td>${guardia.horario}</td>
           <td>
               <div class="btn-group" role="group" aria-label="Basic example">
@@ -53,27 +52,6 @@ async function listarguardias() {
   }
 }
 
-async function listarcontactos() {
-  const entidad = "contactos";
-  try {
-    const respuesta = await fetch(`${url}/${entidad}`);
-    const contactosDelServidor = await respuesta.json();
-    if (Array.isArray(contactosDelServidor)) {
-      contactos = contactosDelServidor;
-    }
-    if (respuesta.ok) {
-      contactos.forEach((_contacto, indice) => {
-        const optionActual = document.createElement("option");
-        optionActual.innerHTML = _contacto.contacto;
-        optionActual.value = indice;
-        contacto.appendChild(optionActual);
-      });
-    }
-  } catch (error) {
-    console.log({ error });
-    $(".alert-danger").show();
-  }
-}
 
 async function listarusuarios() {
   const entidad = "usuarios";
@@ -86,7 +64,7 @@ async function listarusuarios() {
     if (respuesta.ok) {
       usuarios.forEach((_usuario, indice) => {
         const optionActual = document.createElement("option");
-        optionActual.innerHTML = `${_usuario.legajo} ${_usuario.grupo}`;
+        optionActual.innerHTML = `${_usuario.nombre} ${_usuario.apellido} ${_usuario.grupo} ${_usuario.contacto}`;
         optionActual.value = indice;
         usuario.appendChild(optionActual);
       });
@@ -154,7 +132,7 @@ async function enviarDatos(evento) {
 
 function resetModal (){
   btnGuardar.innerHTML = 'Crear';
-  [indice,contacto,usuario,historia,diagnostico].forEach((imputActual)=>{
+  [indice,legajo,grupo,contacto,horario].forEach((imputActual)=>{
     imputActual.value = "";
     imputActual.classList.remove("is-invalid");
     imputActual.classList.remove("is-valid");
@@ -168,6 +146,5 @@ function resetModal (){
 
 btnGuardar.onclick = enviarDatos;
 
-listarcontactos();
 listarguardias();
 listarusuarios();

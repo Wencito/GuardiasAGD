@@ -8,7 +8,7 @@ module.exports = {
         callback(200, { mensaje: 'Esta es /ruta' });
     },
     guardias: guardias(recursos),
-    contactos: contactos(recursos.contactos),
+    contactos: contactos(recursos),
     usuarios: usuarios(recursos.usuarios),
     noEncontrado: (data, callback) => {
         callback(404, { mensaje: 'No encontrado' });

@@ -6,16 +6,29 @@ module.exports = {
         {legajo: "987321654", nombre: "Nicolas", apellido: "Palacios", email: "Nicolas@example", contacto:"1245215", grupo:"PMZ"},
     ],
     contactos: [
-        {nombre: "Alejandro", apellido: "Martinez", email: "alejandro@exmple.com", contacto: "1237645124", interno:"4330"},
-        {nombre: "Fernando", apellido: "Dominguez", email: "fernando@example.com", contacto: "67867185", interno:"4021"},
-        {nombre: "Alex", apellido: "Perez", email: "alex@example.com", contacto: "857891279", interno:"2134"},
-        {nombre: "Oscar", apellido: "Lugones", email: "oscar@example.com", contacto: "1257812", interno:"2356"},
+        {usuario: 0, email: 0, contacto: 0, interno:"4330"},
+        {usuario: 1, email: 1, contacto: 1, interno:"5800"},
+        {usuario: 2, email: 2, contacto: 2, interno:"2020"},
+        {usuario: 3, email: 3, contacto: 3, interno:"8120"},
+        
     ],
     guardias: [
         {
-            legajo: 0, 
+            usuario: 0, 
             grupo: 0,
             contacto: 0,
+            horario: "2024-10-03 17:00",
+        },
+        {
+            usuario: 1, 
+            grupo: 1,
+            contacto: 1,
+            horario: "2024-10-03 17:00",
+        },
+        {
+            usuario: 2, 
+            grupo: 2,
+            contacto: 2,
             horario: "2024-10-03 17:00",
         },
     ],
